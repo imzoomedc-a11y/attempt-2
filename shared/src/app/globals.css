@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-ink-950: #060a13;
+  --color-ink-900: #0c1424;
+  --color-ink-800: #16203a;
+  --color-ink-700: #24304c;
+  --color-ink-500: #5a6a85;
+  --color-ink-300: #9aa8bf;
+
+  --color-mist-50: #f7f9fc;
+  --color-mist-100: #eff3f9;
+  --color-mist-200: #e2e9f3;
+
+  --color-brand-50: #e9f7f4;
+  --color-brand-100: #cdeee7;
+  --color-brand-200: #a5e0d5;
+  --color-brand-300: #6fcbbb;
+  --color-brand-400: #33ac9b;
+  --color-brand-500: #14907f;
+  --color-brand-600: #0e7467;
+  --color-brand-700: #0b5c53;
+
+  --color-accent-100: #fdf0d5;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  --color-violet-500: #6d5ae0;
+  --color-violet-600: #5a45cf;
+
+  --radius-4xl: 2rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-200);
+    color: var(--color-ink-900);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    border-radius: 1.25rem;
+    border: 1px solid var(--color-mist-200);
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(12, 20, 36, 0.04),
+      0 12px 32px -24px rgba(12, 20, 36, 0.35);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.7rem 1.35rem;
+    transition: transform 0.15s ease, background-color 0.15s ease,
+      color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand-500);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-600);
+  }
+
+  .btn-dark {
+    background-color: var(--color-ink-900);
+    color: #ffffff;
+  }
+
+  .btn-dark:hover {
+    background-color: var(--color-ink-800);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--color-mist-200);
+    background-color: #ffffff;
+    color: var(--color-ink-900);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-brand-300);
+    background-color: var(--color-brand-50);
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.85rem;
+    border: 1px solid var(--color-mist-200);
+    background-color: #ffffff;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+    color: var(--color-ink-900);
+  }
+
+  .field::placeholder {
+    color: var(--color-ink-300);
+  }
+
+  .field:focus {
+    border-color: var(--color-brand-400);
+    outline: 3px solid var(--color-brand-100);
+    outline-offset: 0;
+  }
+
+  .label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-ink-500);
+    margin-bottom: 0.35rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 999px;
+    padding: 0.25rem 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+}
+
+.mesh {
+  background-image:
+    radial-gradient(38rem 24rem at 12% -8%, rgba(20, 144, 127, 0.18), transparent 60%),
+    radial-gradient(32rem 22rem at 92% 4%, rgba(109, 90, 224, 0.16), transparent 62%),
+    radial-gradient(28rem 20rem at 60% 100%, rgba(245, 158, 11, 0.12), transparent 60%);
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(12, 20, 36, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 20, 36, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
